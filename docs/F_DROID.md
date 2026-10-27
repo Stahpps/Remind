@@ -2,6 +2,10 @@
 
 Remind is not yet accepted or available in the official F-Droid repository. This is upstream preparation, not an inclusion guarantee.
 
+## Maintainer approval
+
+Stahpps, the upstream maintainer, requests and approves inclusion of Remind in the official F-Droid repository. F-Droid may build and distribute the GPL-licensed application from the published source. Normal F-Droid signing is accepted; reuse of the GitHub release signing key is not required. This statement provides public confirmation for submissions made through a differently named GitLab account.
+
 ## Source and licensing
 
 Original source and author-controlled artwork are GPL-3.0-or-later beginning with 1.4. LICENSE contains the full GPL; COPYRIGHT documents scope and artwork provenance. Third-party licenses remain intact, with notices bundled offline in public/licenses/. docs/npm-dependencies.json inventories every package in the npm lockfile, including build tools and optional platform packages. Its license fields are an audit aid, not independent proof of every package's contents.
