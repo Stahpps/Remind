@@ -2,21 +2,24 @@ apply plugin: 'com.android.application'
 
 def releaseSigningProperties = new Properties()
 def releaseSigningPropertiesFile = rootProject.file('keystore.properties')
+if (project.hasProperty('fdroid') && project.hasProperty('legacyMigration')) throw new GradleException('Legacy migration builds are not F-Droid releases')
+
 def hasReleaseSigning = !project.hasProperty('fdroid') && releaseSigningPropertiesFile.exists()
 if (hasReleaseSigning) {
     releaseSigningPropertiesFile.withInputStream { releaseSigningProperties.load(it) }
 }
 
 android {
-    namespace = "com.remind.app"
+    namespace = "io.github.stahpps.remind"
     compileSdk = rootProject.ext.compileSdkVersion
     buildToolsVersion "36.0.0"
     defaultConfig {
-        applicationId "com.remind.app"
+        applicationId "io.github.stahpps.remind"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 5
-        versionName "1.4"
+        versionCode 6
+        versionName "1.5"
+        manifestPlaceholders = [remindAppName: "Remind"]
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.

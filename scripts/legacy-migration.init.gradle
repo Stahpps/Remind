@@ -1,0 +1,14 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// This temporary transfer build updates old installations with their existing key.
+// It is not the application submitted to F-Droid or Google Play.
+gradle.beforeProject { project ->
+    if (project.path == ':app') {
+        project.pluginManager.withPlugin('com.android.application') {
+            project.androidComponents.finalizeDsl { extension ->
+                if (project.hasProperty('fdroid')) throw new GradleException('Not an F-Droid build')
+                extension.defaultConfig.applicationId = 'com.remind.app'
+                extension.defaultConfig.manifestPlaceholders = [remindAppName: 'Remind (transfer)']
+            }
+        }
+    }
+}

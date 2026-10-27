@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright (C) 2026 Stahpps
-package com.remind.app;
+package io.github.stahpps.remind;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;

@@ -1,0 +1,1 @@
+New unique application ID io.github.stahpps.remind. Export and import event backups from Settings, with a preview and duplicate handling. Gradle download integrity verification enabled. Previous installations need the migration APK to export their events before importing into the new app.

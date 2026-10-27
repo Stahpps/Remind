@@ -1,5 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright (C) 2026 Stahpps
+import BackupSettings from './BackupSettings.jsx'
+import { mergeBackup } from './backups.js'
 import { useEffect, useMemo, useState } from 'react'
 import { Capacitor, registerPlugin } from '@capacitor/core'
 import { LocalNotifications } from '@capacitor/local-notifications'
@@ -8,7 +10,7 @@ import { duplicateEventDraft, eventDate, normalizeEvent, REMINDER_OFFSETS } from
 import { normalizeSettings } from './settings.js'
 import { createNotificationService } from './notification-service.js'
 
-const APP_VERSION = '1.4'
+const APP_VERSION = '1.5'
 const deviceSettings = registerPlugin('RemindSettings')
 const EVENT_KEY = 'remind.events.v1'
 const SETTINGS_KEY = 'remind.settings.v1'
@@ -131,7 +133,7 @@ function EventModal({ event, draft, language, onClose, onSave }) {
   </div>
 }
 
-function SettingsModal({ settings, onClose, onToggleTheme, onToggleNotifications, onChangeLanguage, onToggleSummary, onSummaryTimeChange, onOpenSound, soundStatus, soundBusy, soundError }) {
+function SettingsModal({ events, onImportEvents, settings, onClose, onToggleTheme, onToggleNotifications, onChangeLanguage, onToggleSummary, onSummaryTimeChange, onOpenSound, soundStatus, soundBusy, soundError }) {
   const t = translations[settings.language]
   const isAndroid = Capacitor.getPlatform() === 'android'
   const soundLabel = !isAndroid ? t.soundAndroidOnly : soundStatus?.error ? t.soundUnavailable
@@ -165,6 +167,7 @@ function SettingsModal({ settings, onClose, onToggleTheme, onToggleNotifications
           </label>)}
         </div>
       </fieldset>
+      <BackupSettings language={settings.language} events={events} onImport={onImportEvents} />
       <p className="settings-section-label about-label">{t.aboutSupport}</p>
       <div className="about-card">
         <strong>Remind v{APP_VERSION}</strong>
@@ -291,6 +294,12 @@ export default function App() {
     }).sort((a, b) => activeTab === 'Past' ? eventDate(b) - eventDate(a) : eventDate(a) - eventDate(b))
   }, [events, activeTab, currentTime])
 
+  function importEvents(incoming) {
+    const result = mergeBackup(events, incoming)
+    localStorage.setItem(EVENT_KEY, JSON.stringify(result.events))
+    setEvents(result.events)
+    return result
+  }
   function saveEvent(event) {
     setEvents((old) => [event, ...old.filter((item) => item.id !== event.id)])
     setEditor(null)
@@ -330,6 +339,6 @@ export default function App() {
     </section>
     <button className="floating-add" onClick={() => setEditor({ event: null })} aria-label={t.addEvent}><Icon name="plus" size={45} /></button>
     {editor && <EventModal event={editor.event} draft={editor.draft} language={settings.language} onClose={() => setEditor(null)} onSave={saveEvent} />}
-    {settingsOpen && <SettingsModal settings={settings} onClose={() => setSettingsOpen(false)} onToggleTheme={toggleTheme} onToggleNotifications={toggleNotifications} onChangeLanguage={changeLanguage} onToggleSummary={toggleSummary} onSummaryTimeChange={changeSummaryTime} onOpenSound={openSoundSettings} soundStatus={soundStatus} soundBusy={soundBusy} soundError={soundError} />}
+    {settingsOpen && <SettingsModal events={events} onImportEvents={importEvents} settings={settings} onClose={() => setSettingsOpen(false)} onToggleTheme={toggleTheme} onToggleNotifications={toggleNotifications} onChangeLanguage={changeLanguage} onToggleSummary={toggleSummary} onSummaryTimeChange={changeSummaryTime} onOpenSound={openSoundSettings} soundStatus={soundStatus} soundBusy={soundBusy} soundError={soundError} />}
   </main>
 }

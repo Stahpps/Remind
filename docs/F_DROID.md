@@ -25,8 +25,8 @@ Use Node 24.22.1, OpenJDK/Temurin 21, Android SDK platform 36 and build-tools 36
 ## Before requesting inclusion
 
 1. Pass clean Linux build checks and F-Droid metadata lint, source scanner and server build in fdroiddata. Adjust the draft recipe to current infrastructure if necessary.
-2. Create a source tag v1.4 only after validation. The draft references that tag; it must exist before submission. Use its immutable commit hash in the final build entry.
-3. Check the application ID com.remind.app for conflicts. It is retained to preserve updates for current users; do not change it casually.
+2. Create a source tag v1.5 only after validation. The draft references that tag; it must exist before submission. Use its immutable commit hash in the final build entry.
+3. The application ID is io.github.stahpps.remind starting with 1.5. The earlier com.remind.app ID conflicts with an unrelated Google Play app and is used only by the temporary transfer APK. See MIGRATION.md.
 4. Supply genuine user-testing and maintenance evidence. The current inclusion policy normally expects three months of development, with an exception for demonstrated users. Acceptance of that exception is F-Droid's decision.
 5. Submit an inclusion request or fdroiddata merge request with the source URL, license, metadata, screenshots and build results. No submission is performed by adding these files.
 

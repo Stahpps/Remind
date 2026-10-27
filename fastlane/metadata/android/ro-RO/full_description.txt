@@ -7,5 +7,6 @@
 <li>Primește un rezumat zilnic opțional, la ora aleasă.</li>
 <li>Folosește interfața în română sau engleză, cu temă întunecată sau luminoasă.</li>
 <li>Schimbă tonul din setările Android dedicate Remind (Android 8+).</li>
+<li>Exportă și importă copii ale evenimentelor, cu previzualizare și gestionarea duplicatelor.</li>
 </ul>
 <p>Nu sunt necesare conturi sau servere ale aplicației. Nu sunt incluse reclame sau analize de utilizare. Notificările sunt programate local; permisiunile și economisirea bateriei din Android pot afecta livrarea. Linkul opțional Ko-fi deschide un site extern.</p>

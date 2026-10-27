@@ -9,6 +9,12 @@ export const localeFor = (language) => language === 'ro' ? 'ro-RO' : 'en-US'
 
 export const translations = {
   en: {
+    backupTitle: 'Event backups', backupHint: 'Save your events to a file or bring them from another Remind installation. Keep this file private: it contains your event details.',
+    exportEvents: 'Export events', importEvents: 'Import events', confirmImport: 'Import', cancel: 'Cancel',
+    importPreview: (count) => count + ' events found. Importing keeps your existing events and skips records already imported.',
+    exportSuccess: 'Backup saved.', exportError: 'Could not save the backup. Please try again.',
+    importError: 'Could not import this file. Choose a valid Remind backup (up to 5 MB). Your existing events have not been removed.',
+    importSuccess: (added, skipped) => added + ' events imported; ' + skipped + ' already present.',
     sourceCode: 'Source code', license: 'License',
     duplicate: 'Duplicate', duplicateEvent: 'Duplicate Event', duplicateHint: 'Details copied. Choose the date and time, then save your new event.',
     dailySummary: 'Daily summary', dailySummaryHint: 'All events for the day, in one morning notification.', summaryTime: 'Summary time',
@@ -40,6 +46,12 @@ export const translations = {
     noNotifications: 'No notifications',
   },
   ro: {
+    backupTitle: 'Copii ale evenimentelor', backupHint: 'Salvează evenimentele într-un fișier sau adu-le din altă instalare Remind. Păstrează fișierul privat: conține detaliile evenimentelor tale.',
+    exportEvents: 'Exportă evenimentele', importEvents: 'Importă evenimente', confirmImport: 'Importă', cancel: 'Anulează',
+    importPreview: (count) => count + ' evenimente găsite. Importul păstrează evenimentele existente și omite înregistrările deja importate.',
+    exportSuccess: 'Copia a fost salvată.', exportError: 'Copia nu a putut fi salvată. Încearcă din nou.',
+    importError: 'Fișierul nu a putut fi importat. Alege o copie Remind validă (maximum 5 MB). Evenimentele existente nu au fost șterse.',
+    importSuccess: (added, skipped) => added + ' evenimente importate; ' + skipped + ' deja existente.',
     sourceCode: 'Cod sursă', license: 'Licență',
     duplicate: 'Duplică', duplicateEvent: 'Duplică evenimentul', duplicateHint: 'Detaliile au fost copiate. Alege data și ora, apoi salvează noul eveniment.',
     dailySummary: 'Rezumat zilnic', dailySummaryHint: 'Toate evenimentele zilei, într-o singură notificare dimineața.', summaryTime: 'Ora rezumatului',

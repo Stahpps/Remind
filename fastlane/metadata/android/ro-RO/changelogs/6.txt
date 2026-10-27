@@ -1,0 +1,1 @@
+Identificator nou: io.github.stahpps.remind. Exportă și importă copii ale evenimentelor din Setări, cu previzualizare și gestionarea duplicatelor. Verificarea integrității descărcării Gradle este activată. Pentru instalările vechi, folosește APK-ul de transfer pentru a exporta evenimentele în noua aplicație.

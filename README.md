@@ -12,10 +12,15 @@ An offline-first Android app for personal events and reminders, created by **Sta
 - Work, Personal, Important and Health categories with matching colors and emoji.
 - Create, edit, duplicate and delete events.
 - Multiple reminder times per event.
+- Export and import event backups, with confirmation and duplicate handling.
 - Native Android notifications, including delivery while the screen is off.
 - Optional daily summary at 08:00 by default, with an editable time. Summaries are scheduled only for dates that have saved events.
 - A notification sound setting that opens Android's Remind-specific sound controls (Android 8+).
 - Event and preference storage on the device using `localStorage`; no account or application backend is required.
+
+## Moving from versions 1.0–1.4
+
+**Before uninstalling the old app, [follow the event transfer steps](docs/MIGRATION.md).** Version 1.5 has a new application ID (io.github.stahpps.remind). Existing users need the signed transfer APK to export their events, then import the backup into the new app. New users install only remind.1.5.apk.
 
 ## Install on Android
 
@@ -23,7 +28,7 @@ An offline-first Android app for personal events and reminders, created by **Sta
 2. Open the APK on your phone and allow installation from that source if Android asks.
 3. Allow notifications and, when requested, the **Alarms & reminders** permission.
 
-To keep your saved events, install updates over the existing official release without uninstalling. Uninstalling or clearing the app's storage removes the locally saved data. Back up anything important before doing either.
+After the one-time 1.5 migration, install future updates over the existing official release without uninstalling to keep your saved events. Uninstalling or clearing the app's storage removes the locally saved data. Back up anything important before doing either.
 
 Android's force-stop, notification restrictions and power-management policies can affect delivery. Closely spaced alerts may also be delayed by Android's idle-mode limits. A daily summary contains the events saved for that date; editing an event updates its pending notifications.
 
@@ -108,7 +113,7 @@ The result is `android/app/build/outputs/apk/release/app-release-unsigned.apk`. 
 - `src/reminders.js`: reminder migration, duplication and notification payloads.
 - `src/notification-service.js`: native notification synchronization.
 - `src/settings.js`: preference defaults and migration.
-- `android/app/src/main/java/com/remind/app/RemindSettingsPlugin.java`: Android notification sound-settings bridge.
+- `android/app/src/main/java/io/github/stahpps/remind/RemindSettingsPlugin.java`: Android notification sound-settings bridge.
 - `tests/`: regression tests for event migration, reminders, daily summaries and settings.
 
 ## Privacy
@@ -131,6 +136,6 @@ When reporting a problem, include your Remind version, phone model, Android vers
 
 Remind este o aplicație Android pentru evenimente și notificări personale, cu stocare locală și interfață în română sau engleză. Poți crea, edita și duplica evenimente, selecta mai multe notificări și activa un rezumat zilnic.
 
-Descarcă APK-ul din [Releases](https://github.com/Stahpps/Remind/releases). Pentru actualizare, instalează versiunea nouă peste cea existentă, fără dezinstalare, ca să păstrezi evenimentele. Permite notificările și accesul la „Alarme și mementouri” când Android solicită acest lucru.
+Descarcă APK-ul din [Releases](https://github.com/Stahpps/Remind/releases). Pentru trecerea de la 1.0–1.4 la 1.5, urmează [pașii de transfer](docs/MIGRATION.md): export din APK-ul de transfer, apoi import în aplicația nouă. Nu dezinstala aplicația veche înainte să salvezi și să verifici evenimentele. Permite notificările și accesul la „Alarme și mementouri” când Android solicită acest lucru.
 
 Începând cu 1.4, codul original este disponibil sub GPL-3.0-or-later. Cheia oficială de semnare și parolele nu sunt incluse. Pregătirea pentru F-Droid nu înseamnă că aplicația a fost acceptată în catalog.
