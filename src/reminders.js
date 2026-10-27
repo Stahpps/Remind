@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 Stahpps
 import { localeFor, translations } from './i18n.js'
 
 export const REMINDER_OFFSETS = [0, 5, 15, 30, 60, 1440]

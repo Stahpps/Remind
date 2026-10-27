@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 Stahpps
 export const DEFAULT_SETTINGS = {
   theme: 'dark', notifications: true, language: 'en',
   dailySummary: true, dailySummaryTime: '08:00',

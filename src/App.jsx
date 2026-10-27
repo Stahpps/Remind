@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 Stahpps
 import { useEffect, useMemo, useState } from 'react'
 import { Capacitor, registerPlugin } from '@capacitor/core'
 import { LocalNotifications } from '@capacitor/local-notifications'
@@ -6,7 +8,7 @@ import { duplicateEventDraft, eventDate, normalizeEvent, REMINDER_OFFSETS } from
 import { normalizeSettings } from './settings.js'
 import { createNotificationService } from './notification-service.js'
 
-const APP_VERSION = '1.3'
+const APP_VERSION = '1.4'
 const deviceSettings = registerPlugin('RemindSettings')
 const EVENT_KEY = 'remind.events.v1'
 const SETTINGS_KEY = 'remind.settings.v1'
@@ -166,6 +168,7 @@ function SettingsModal({ settings, onClose, onToggleTheme, onToggleNotifications
       <p className="settings-section-label about-label">{t.aboutSupport}</p>
       <div className="about-card">
         <strong>Remind v{APP_VERSION}</strong>
+        <p className="license-note"><span>GPL-3.0-or-later</span> · <a href="https://github.com/Stahpps/Remind" target="_blank" rel="noreferrer">{t.sourceCode}</a> · <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noreferrer">{t.license}</a></p>
         <a className="support-cta" href="https://ko-fi.com/stahpps" target="_blank" rel="noreferrer" aria-label={t.supportLabel}>
           <span className="kofi-button"><Icon name="cup" size={20} /><span>Ko-fi</span></span>
           <span className="support-copy"><strong>{t.likeRemind}</strong><span>{t.supportCopy}</span></span>

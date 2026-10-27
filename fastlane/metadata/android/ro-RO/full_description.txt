@@ -1,0 +1,11 @@
+<p>Remind te ajută să organizezi evenimente și notificări personale. Datele evenimentelor sunt păstrate pe dispozitiv.</p>
+<ul>
+<li>Creează, editează, duplică și șterge evenimente.</li>
+<li>Alege categoria Muncă, Personal, Important sau Sănătate.</li>
+<li>Selectează mai multe notificări pentru același eveniment.</li>
+<li>Vezi evenimentele viitoare, de astăzi și trecute.</li>
+<li>Primește un rezumat zilnic opțional, la ora aleasă.</li>
+<li>Folosește interfața în română sau engleză, cu temă întunecată sau luminoasă.</li>
+<li>Schimbă tonul din setările Android dedicate Remind (Android 8+).</li>
+</ul>
+<p>Nu sunt necesare conturi sau servere ale aplicației. Nu sunt incluse reclame sau analize de utilizare. Notificările sunt programate local; permisiunile și economisirea bateriei din Android pot afecta livrarea. Linkul opțional Ko-fi deschide un site extern.</p>

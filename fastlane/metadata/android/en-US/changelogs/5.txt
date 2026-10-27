@@ -1,0 +1,1 @@
+GPL-3.0-or-later licensing for original code and artwork; bundled license notices; F-Droid listing metadata; pinned build dependencies; unsigned release-build support; unused Google Services configuration removed. Existing events and reminder behavior are preserved.

@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 def releaseSigningProperties = new Properties()
 def releaseSigningPropertiesFile = rootProject.file('keystore.properties')
-def hasReleaseSigning = releaseSigningPropertiesFile.exists()
+def hasReleaseSigning = !project.hasProperty('fdroid') && releaseSigningPropertiesFile.exists()
 if (hasReleaseSigning) {
     releaseSigningPropertiesFile.withInputStream { releaseSigningProperties.load(it) }
 }
@@ -10,12 +10,13 @@ if (hasReleaseSigning) {
 android {
     namespace = "com.remind.app"
     compileSdk = rootProject.ext.compileSdkVersion
+    buildToolsVersion "36.0.0"
     defaultConfig {
         applicationId "com.remind.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 4
-        versionName "1.3"
+        versionCode 5
+        versionName "1.4"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
@@ -27,8 +28,8 @@ android {
         release {
             if (hasReleaseSigning) {
                 storeFile rootProject.file(releaseSigningProperties['storeFile'])
-            storePassword releaseSigningProperties['storePassword']
-            keyAlias releaseSigningProperties['keyAlias']
+                storePassword releaseSigningProperties['storePassword']
+                keyAlias releaseSigningProperties['keyAlias']
                 keyPassword releaseSigningProperties['keyPassword']
             }
         }
@@ -62,12 +63,3 @@ dependencies {
 }
 
 apply from: 'capacitor.build.gradle'
-
-try {
-    def servicesJSON = file('google-services.json')
-    if (servicesJSON.text) {
-        apply plugin: 'com.google.gms.google-services'
-    }
-} catch(Exception e) {
-    logger.info("google-services.json not found, google-services plugin not applied. Push Notifications won't work")
-}

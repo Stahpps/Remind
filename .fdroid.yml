@@ -1,0 +1,49 @@
+Categories:
+  - Time
+License: GPL-3.0-or-later
+AuthorName: Stahpps
+AuthorWebSite: https://github.com/Stahpps
+SourceCode: https://github.com/Stahpps/Remind
+IssueTracker: https://github.com/Stahpps/Remind/issues
+Changelog: https://github.com/Stahpps/Remind/releases
+Donate: https://ko-fi.com/stahpps
+AutoName: Remind
+Summary: Offline events, multiple reminders and daily summaries
+Description: |-
+  Organize events locally, with multiple reminders per event, categories,
+  English/Romanian interfaces and an optional morning summary.
+  Android notification permissions and power-management restrictions apply.
+RepoType: git
+Repo: https://github.com/Stahpps/Remind.git
+MaintainerNotes: |-
+  Capacitor 8 with React/Vite. Uses raw build mode so Gradle is not evaluated
+  before npm and Capacitor have generated the native project configuration.
+  npm dependencies are integrity-pinned; install scripts are disabled.
+  All compilation happens in the build phase. No blanket scanignore is used.
+  F-Droid's installed Gradle is selected with FDROID_GRADLE=system.
+  Native Android dependencies are built from npm-distributed Java/Kotlin source.
+  The exact npm license inventory is in docs/npm-dependencies.json.
+  Original artwork is GPL-3.0-or-later; provenance is documented in COPYRIGHT.
+  No reproducible-build or developer-signature claim is made yet.
+  The app is new; real-user testing and maintenance evidence must accompany
+  an inclusion request under F-Droid's maturity policy.
+Builds:
+  - versionName: '1.4'
+    versionCode: 5
+    commit: v1.4
+    sudo:
+      - apt-get update
+      - apt-get install -y ca-certificates curl xz-utils openjdk-21-jdk-headless
+      - curl -fsSLo /tmp/remind-node.tar.xz https://nodejs.org/dist/v24.22.1/node-v24.22.1-linux-x64.tar.xz
+      - echo '6c172a9ab6718f7b801fb5a7bd486af2ee5e32758086a04b84fcce2aa77095e6  /tmp/remind-node.tar.xz' | sha256sum -c -
+      - tar -xJf /tmp/remind-node.tar.xz --strip-components=1 -C /usr/local
+    rm:
+      - android/gradle/wrapper/gradle-wrapper.jar
+    output: android/app/build/outputs/apk/release/app-release-unsigned.apk
+    build:
+      - npm ci --ignore-scripts
+      - FDROID_GRADLE=system npm run android:unsigned
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags ^v[0-9]+\.[0-9]+$
+CurrentVersion: '1.4'
+CurrentVersionCode: 5

@@ -1,0 +1,1 @@
+Licență GPL-3.0-or-later pentru codul și grafica originale; notificări de licență incluse; metadate pentru F-Droid; dependențe fixate; compilare release nesemnată; eliminarea configurării Google Services neutilizate. Evenimentele și comportamentul notificărilor sunt păstrate.

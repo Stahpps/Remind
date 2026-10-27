@@ -1,0 +1,11 @@
+<p>Remind helps you organize personal events and reminders, with all event data stored on your device.</p>
+<ul>
+<li>Create, edit, duplicate and delete events.</li>
+<li>Choose Work, Personal, Important or Health categories.</li>
+<li>Select multiple reminder times for an event.</li>
+<li>View Upcoming, Today and Past events.</li>
+<li>Receive an optional daily summary at a configurable time.</li>
+<li>Use English or Romanian, dark or light mode.</li>
+<li>Change the notification tone through Android's Remind-specific sound settings (Android 8+).</li>
+</ul>
+<p>No account, application backend, advertising or analytics is required. Notifications are scheduled locally; Android permissions and power-management settings can affect delivery. The optional Ko-fi link opens an external website.</p>

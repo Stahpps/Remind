@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 Stahpps
 export const languageOptions = [
   { code: 'en', label: 'English' },
   { code: 'ro', label: 'Română' },
@@ -7,6 +9,7 @@ export const localeFor = (language) => language === 'ro' ? 'ro-RO' : 'en-US'
 
 export const translations = {
   en: {
+    sourceCode: 'Source code', license: 'License',
     duplicate: 'Duplicate', duplicateEvent: 'Duplicate Event', duplicateHint: 'Details copied. Choose the date and time, then save your new event.',
     dailySummary: 'Daily summary', dailySummaryHint: 'All events for the day, in one morning notification.', summaryTime: 'Summary time',
     summaryNotificationTitle: (count) => `Remind · ${count === 1 ? '1 event today' : count + ' events today'}`,
@@ -37,6 +40,7 @@ export const translations = {
     noNotifications: 'No notifications',
   },
   ro: {
+    sourceCode: 'Cod sursă', license: 'Licență',
     duplicate: 'Duplică', duplicateEvent: 'Duplică evenimentul', duplicateHint: 'Detaliile au fost copiate. Alege data și ora, apoi salvează noul eveniment.',
     dailySummary: 'Rezumat zilnic', dailySummaryHint: 'Toate evenimentele zilei, într-o singură notificare dimineața.', summaryTime: 'Ora rezumatului',
     summaryNotificationTitle: (count) => `Remind · ${count === 1 ? '1 eveniment astăzi' : count + ' evenimente astăzi'}`,

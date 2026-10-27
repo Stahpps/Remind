@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-3.0-or-later; Copyright (C) 2026 Stahpps */
 @import "tailwindcss" source(none);
 @source "./";
 
@@ -189,3 +190,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .settings-hint { margin: -1px 3px 15px; color: var(--muted); font-size: 12px; line-height: 1.45; }
 @media (min-width: 700px) { .event-main { padding-right: 22px; } }
 @media (max-width: 380px) { .event-main { padding-right: 15px; } }
+
+.license-note { color: var(--muted); font-size: 12px; line-height: 1.6; }
+.about-card .license-note a { display: inline; min-height: 0; color: var(--accent); font-size: inherit; font-weight: 500; }
