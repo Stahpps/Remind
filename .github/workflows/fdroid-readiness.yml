@@ -35,7 +35,10 @@ jobs:
           cd work/fdroid-check
           ../fdroid-tools/bin/fdroid lint com.remind.app
       - name: Install Android SDK components
-        run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
+        run: |
+          sdkmanager_path=$(find "$ANDROID_HOME/cmdline-tools" -type f -name sdkmanager | sort -V | tail -n 1)
+          test -n "$sdkmanager_path"
+          "$sdkmanager_path" "platforms;android-36" "build-tools;36.0.0"
       - run: npm run android:unsigned
       - name: Confirm unsigned APK
         run: |
@@ -48,6 +51,7 @@ jobs:
         with:
           name: remind-unsigned-review-only
           path: android/app/build/outputs/apk/release/app-release-unsigned.apk
+
 
 
 
