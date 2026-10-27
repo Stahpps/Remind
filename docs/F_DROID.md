@@ -4,7 +4,9 @@ Remind is not yet accepted or available in the official F-Droid repository. This
 
 ## Submission status
 
-A public Request for Packaging was opened on 2026-10-27: [Remind #4677](https://gitlab.com/fdroid/rfp/-/work_items/4677). It includes the pinned 1.4 build recipe, upstream consent, screenshots and CI results. The request is open and awaiting F-Droid review; this is not an acceptance or publication announcement.
+A public Request for Packaging was opened on 2026-10-27: [Remind #4677](https://gitlab.com/fdroid/rfp/-/work_items/4677). It now includes the pinned 1.5 build recipe, upstream consent, screenshots and CI results. On 2026-10-27 the request was updated to the unique application ID io.github.stahpps.remind after discovering that com.remind.app belongs to an unrelated Google Play app. The request is open and awaiting F-Droid review; this is not an acceptance or publication announcement.
+
+The [1.5 follow-up](https://gitlab.com/fdroid/rfp/-/work_items/4677#note_4101274899) documents the ID correction and the Gradle SHA-256 fix. [Linux CI](https://github.com/Stahpps/Remind/actions/runs/40548571072) passed all 24 tests, lint, metadata checks and an unsigned build. A separate Android emulator test verified the real 1.3 → transfer APK → JSON export → 1.5 import sequence. The signed transfer helper is only for existing testers and is not the app submitted for inclusion.
 
 ## Maintainer approval
 
