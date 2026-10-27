@@ -23,6 +23,14 @@ jobs:
           cache: npm
       - run: npm ci --ignore-scripts
       - run: npm test && npm run lint && npm run check:fdroid
+      - name: Validate F-Droid metadata
+        run: |
+          python3 -m venv work/fdroid-tools
+          work/fdroid-tools/bin/pip install fdroidserver==2.4.5
+          mkdir -p work/fdroid-check/metadata
+          cp .fdroid.yml work/fdroid-check/metadata/com.remind.app.yml
+          cd work/fdroid-check
+          ../fdroid-tools/bin/fdroid lint com.remind.app
       - name: Install Android SDK components
         run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
       - run: npm run android:unsigned
@@ -37,3 +45,4 @@ jobs:
         with:
           name: remind-unsigned-review-only
           path: android/app/build/outputs/apk/release/app-release-unsigned.apk
+
