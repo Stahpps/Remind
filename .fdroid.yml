@@ -41,6 +41,8 @@ Builds:
       - android/gradle/wrapper/gradle-wrapper.jar
     output: android/app/build/outputs/apk/release/app-release-unsigned.apk
     build:
+      - export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
+      - export PATH=/usr/local/bin:$JAVA_HOME/bin:$PATH
       - npm ci --ignore-scripts
       - FDROID_GRADLE=system npm run android:unsigned
 AutoUpdateMode: Version v%v
