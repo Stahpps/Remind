@@ -29,6 +29,8 @@ jobs:
           work/fdroid-tools/bin/pip install fdroidserver==2.4.5
           mkdir -p work/fdroid-check/metadata
           cp .fdroid.yml work/fdroid-check/metadata/com.remind.app.yml
+          mkdir -p work/fdroid-check/config
+          curl -fsSL https://gitlab.com/fdroid/fdroiddata/-/raw/master/config/categories.yml -o work/fdroid-check/config/categories.yml
           cd work/fdroid-check
           ../fdroid-tools/bin/fdroid lint com.remind.app
       - name: Install Android SDK components
@@ -45,4 +47,5 @@ jobs:
         with:
           name: remind-unsigned-review-only
           path: android/app/build/outputs/apk/release/app-release-unsigned.apk
+
 
