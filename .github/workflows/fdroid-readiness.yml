@@ -28,12 +28,12 @@ jobs:
           python3 -m venv work/fdroid-tools
           work/fdroid-tools/bin/pip install fdroidserver==2.4.5
           mkdir -p work/fdroid-check/metadata
-          cp .fdroid.yml work/fdroid-check/metadata/com.remind.app.yml
+          cp .fdroid.yml work/fdroid-check/metadata/io.github.stahpps.remind.yml
           mkdir -p work/fdroid-check/config
           curl -fsSL https://gitlab.com/fdroid/fdroiddata/-/raw/master/config/categories.yml -o work/fdroid-check/config/categories.yml
           work/fdroid-tools/bin/python -c "import yaml; p='work/fdroid-check/config/categories.yml'; d=yaml.safe_load(open(p)); [v.pop('icon', None) for v in d.values()]; open(p, 'w').write(yaml.safe_dump(d))"
           cd work/fdroid-check
-          ../fdroid-tools/bin/fdroid lint com.remind.app
+          ../fdroid-tools/bin/fdroid lint io.github.stahpps.remind
       - name: Install Android SDK components
         run: |
           sdkmanager_path=$(find "$ANDROID_HOME/cmdline-tools" -type f -name sdkmanager | sort -V | tail -n 1)
@@ -51,8 +51,3 @@ jobs:
         with:
           name: remind-unsigned-review-only
           path: android/app/build/outputs/apk/release/app-release-unsigned.apk
-
-
-
-
-
