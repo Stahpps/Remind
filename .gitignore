@@ -1,0 +1,57 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+android/keystore.properties
+android/app/*.jks
+android/app/*.keystore
+android/app/*.p12
+android/app/build-release-*/
+releases/
+work/
+
+# Signing material and local credentials
+*.jks
+*.keystore
+*.p12
+*.pfx
+.env
+.env.*
+!.env.example
+**/keystore.properties
+
+# Separate Android sample project and local write-access probe
+MyApplication/
+src/probe.txt
+
+# Build artifacts are published as release assets, not source files
+*.apk
+*.aab
+# Unused starter-template assets
+src/App.css
+src/assets/
+public/vite.svg
+
+public/favicon.svg
+public/icons.svg
