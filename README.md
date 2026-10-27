@@ -89,7 +89,7 @@ Do not commit signing keys, the populated `keystore.properties`, SDK paths, cred
 
 ## F-Droid preparation
 
-The repository includes localized Fastlane descriptions, licensing notices, a dependency inventory and a draft build recipe. Remind is **not yet listed or approved by F-Droid**. See [F-Droid preparation](docs/F_DROID.md) for validation and submission limitations.
+The repository includes localized Fastlane descriptions, licensing notices, a dependency inventory and a draft build recipe. Remind is **not yet listed or approved by F-Droid**. The [packaging request #4677](https://gitlab.com/fdroid/rfp/-/work_items/4677) is open for review. See [F-Droid preparation](docs/F_DROID.md) for validation and submission limitations.
 
 To build an unsigned release with private signing files explicitly ignored:
 

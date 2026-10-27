@@ -2,6 +2,10 @@
 
 Remind is not yet accepted or available in the official F-Droid repository. This is upstream preparation, not an inclusion guarantee.
 
+## Submission status
+
+A public Request for Packaging was opened on 2026-10-27: [Remind #4677](https://gitlab.com/fdroid/rfp/-/work_items/4677). It includes the pinned 1.4 build recipe, upstream consent, screenshots and CI results. The request is open and awaiting F-Droid review; this is not an acceptance or publication announcement.
+
 ## Maintainer approval
 
 Stahpps, the upstream maintainer, requests and approves inclusion of Remind in the official F-Droid repository. F-Droid may build and distribute the GPL-licensed application from the published source. Normal F-Droid signing is accepted; reuse of the GitHub release signing key is not required. This statement provides public confirmation for submissions made through a differently named GitLab account.
